@@ -51,13 +51,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vMR-ms-233">
                                 <rect key="frame" x="107" y="416" width="200" height="34"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4FE-PR-5bA">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="volume" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4FE-PR-5bA">
                                         <rect key="frame" x="0.0" y="0.0" width="96" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="96" id="dJ3-o4-goI"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="volum" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7T-h4-V5e">
                                         <rect key="frame" x="104" y="0.0" width="96" height="34"/>
@@ -77,13 +77,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0W7-aD-M06">
                                 <rect key="frame" x="107" y="458" width="200" height="34"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4Ay-pA-tu4">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="time" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4Ay-pA-tu4">
                                         <rect key="frame" x="0.0" y="0.0" width="96" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="96" id="sIV-c0-iSv"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxv-TI-IDr">
                                         <rect key="frame" x="104" y="0.0" width="96" height="34"/>
@@ -103,13 +103,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4pc-IP-glt">
                                 <rect key="frame" x="107" y="500" width="200" height="34"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xMk-lE-3S4">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="speed" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xMk-lE-3S4">
                                         <rect key="frame" x="0.0" y="0.0" width="96" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="96" id="0eA-PG-GZo"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="speed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qt-pP-kj1">
                                         <rect key="frame" x="104" y="0.0" width="96" height="34"/>
@@ -156,8 +156,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="speedLable" destination="2qt-pP-kj1" id="PVI-Vq-DhN"/>
                         <outlet property="speedTextField" destination="xMk-lE-3S4" id="XmL-SW-77z"/>
+                        <outlet property="timeLable" destination="bxv-TI-IDr" id="kBm-yi-QbK"/>
                         <outlet property="timeTextField" destination="4Ay-pA-tu4" id="hEL-eG-loO"/>
+                        <outlet property="volumeLable" destination="Y7T-h4-V5e" id="JVq-9a-owk"/>
                         <outlet property="volumeTextField" destination="4FE-PR-5bA" id="FjX-LZ-owC"/>
                     </connections>
                 </viewController>

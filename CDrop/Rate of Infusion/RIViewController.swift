@@ -9,6 +9,9 @@ import UIKit
 
 class RIViewController: UIViewController {
     
+    @IBOutlet weak var volumeLable: UILabel!
+    @IBOutlet weak var timeLable: UILabel!
+    @IBOutlet weak var speedLable: UILabel!
     @IBOutlet weak var volumeTextField: UITextField!
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var speedTextField: UITextField!
@@ -21,6 +24,10 @@ class RIViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        volumeLable.text = "ml"
+        timeLable.text = "min"
+        speedLable.text = "drops/sec"
+        
         volumeTextField.text = nil
         timeTextField.text = nil
         speedTextField.text = nil
