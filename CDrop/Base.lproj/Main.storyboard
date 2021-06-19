@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Rt-KA-rvp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2S-QN-YDc">
-                                <rect key="frame" x="153" y="435.5" width="108" height="35"/>
+                                <rect key="frame" x="153" y="457.5" width="108" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="waP-Lm-Lah"/>
                                 </constraints>
                                 <state key="normal" title="Rate of Infusion"/>
                                 <connections>
-                                    <segue destination="Y18-pR-9sN" kind="presentation" modalPresentationStyle="fullScreen" id="K9k-cD-dOo"/>
+                                    <segue destination="nms-ot-Uzx" kind="show" id="2xh-U8-ue6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -34,10 +34,11 @@
                             <constraint firstItem="m2S-QN-YDc" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="xpg-HV-3Na"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="gAx-eX-id7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="79.6875"/>
+            <point key="canvasLocation" x="928.98550724637687" y="79.6875"/>
         </scene>
         <!--Rate of Infusion-->
         <scene sceneID="fcs-F1-BQs">
@@ -126,9 +127,9 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADh-9o-KR8">
-                                <rect key="frame" x="181.5" y="773" width="51" height="39"/>
+                                <rect key="frame" x="162.5" y="773" width="89" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Done"/>
+                                <state key="normal" title="Calculate"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iH7-UH-yNC"/>
@@ -154,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5GS-tx-TmC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2013.0434782608697" y="79.6875"/>
+            <point key="canvasLocation" x="2923.1884057971015" y="79.6875"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="BKQ-Rd-O4t">
@@ -170,26 +171,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xXz-Xa-B8k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3001" y="80"/>
+            <point key="canvasLocation" x="3910.144927536232" y="79.6875"/>
         </scene>
-        <!--Rate of Infusion-->
-        <scene sceneID="jGb-S8-avW">
+        <!--Navigation Controller-->
+        <scene sceneID="Fxs-KY-9xQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y18-pR-9sN" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Rt-KA-rvp" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Rate of Infusion" id="MX3-3A-w3q"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E4I-mL-fKY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SK6-Ms-omE">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="nms-ot-Uzx" kind="relationship" relationship="rootViewController" id="wZa-ov-xXY"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="PSi-I1-Yen"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x4f-62-AB2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="va6-xa-7bc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043" y="80"/>
+            <point key="canvasLocation" x="18.840579710144929" y="79.6875"/>
         </scene>
     </scenes>
     <resources>
