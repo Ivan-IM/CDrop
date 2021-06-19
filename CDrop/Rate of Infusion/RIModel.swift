@@ -16,9 +16,9 @@ struct RateOfInfusion {
         volume*20.0/Float(time*60)
     }
     var getTime: Int {
-        Int(volume*20.0/speed)
+        Int(volume*20.0/speed*60)
     }
     var getVolume: Float {
-        Float(time)*speed/20
+        Float(time*60)*speed/20
     }
 }
