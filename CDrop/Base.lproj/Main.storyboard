@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Menu-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="CDrop" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,11 +17,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2S-QN-YDc">
-                                <rect key="frame" x="153" y="457.5" width="108" height="35"/>
+                                <rect key="frame" x="132" y="457.5" width="150" height="35"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="vUY-Ne-U8W"/>
                                     <constraint firstAttribute="height" constant="35" id="waP-Lm-Lah"/>
                                 </constraints>
-                                <state key="normal" title="Rate of Infusion"/>
+                                <state key="normal" title="Rate of Infusion">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
                                 <connections>
                                     <segue destination="nms-ot-Uzx" kind="show" id="2xh-U8-ue6"/>
                                 </connections>
@@ -34,7 +38,7 @@
                             <constraint firstItem="m2S-QN-YDc" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="xpg-HV-3Na"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="gAx-eX-id7"/>
+                    <navigationItem key="navigationItem" title="Menu" id="gAx-eX-id7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -127,9 +131,15 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADh-9o-KR8">
-                                <rect key="frame" x="162.5" y="773" width="89" height="39"/>
+                                <rect key="frame" x="132" y="773" width="150" height="39"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="MMN-wV-Tsz"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Calculate"/>
+                                <state key="normal" title="Calculate">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
                                 <connections>
                                     <action selector="calculateButton:" destination="nms-ot-Uzx" eventType="touchUpInside" id="wPm-EW-zxV"/>
                                 </connections>
@@ -205,8 +215,14 @@
     </scenes>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

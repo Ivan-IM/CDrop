@@ -39,12 +39,18 @@ class RIViewController: UIViewController {
     
     @IBAction func calculateButton(_ sender: Any) {
         view.endEditing(true)
-        //speedTextField.text = String(format: "%.1f", rof.getSpeed)
-        
-        //timeTextField.text = String(format: "%.0f", rof.getTime)
-        
+        if rof.speed == 0.0 {
+            speedTextField.text = String(format: "%.1f", rof.getSpeed)
+        }
+        else if rof.time == 0.0 {
+            timeTextField.text = String(format: "%.0f", rof.getTime)
+        }
+        else if rof.volume == 0.0 {
         volumeTextField.text = String(format: "%.1f", rof.getVolume)
-        
+        }
+        else {
+            clearTextField()
+        }
     }
 }
 
@@ -78,7 +84,14 @@ extension RIViewController: UITextFieldDelegate {
             target: nil,
             action: nil
         )
-        
         keyboardToolbar.items = [flexBarButton, doneButton]
+    }
+}
+
+extension RIViewController {
+    func clearTextField() {
+        volumeTextField.text = nil
+        timeTextField.text = nil
+        speedTextField.text = nil
     }
 }
