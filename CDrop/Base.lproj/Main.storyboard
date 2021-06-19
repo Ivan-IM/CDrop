@@ -130,6 +130,9 @@
                                 <rect key="frame" x="162.5" y="773" width="89" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Calculate"/>
+                                <connections>
+                                    <action selector="calculateButton:" destination="nms-ot-Uzx" eventType="touchUpInside" id="wPm-EW-zxV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iH7-UH-yNC"/>
@@ -152,6 +155,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="speedTextField" destination="xMk-lE-3S4" id="XmL-SW-77z"/>
+                        <outlet property="timeTextField" destination="4Ay-pA-tu4" id="hEL-eG-loO"/>
+                        <outlet property="volumeTextField" destination="4FE-PR-5bA" id="FjX-LZ-owC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5GS-tx-TmC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,22 +8,34 @@
 import UIKit
 
 class RIViewController: UIViewController {
-
+    
+    @IBOutlet weak var volumeTextField: UITextField!
+    @IBOutlet weak var timeTextField: UITextField!
+    @IBOutlet weak var speedTextField: UITextField!
+    
+    private var rof = RateOfInfusion(volume: 0.0, time: 0, speed: 0.0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        volumeTextField.text = String(rof.volume)
+        timeTextField.text = String(rof.time)
+        speedTextField.text = String(rof.speed)
+        
+        volumeTextField.delegate = self
+        timeTextField.delegate = self
+        speedTextField.delegate = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func calculateButton(_ sender: Any) {
+        speedTextField.text = String(rof.getSpeed)
     }
-    */
+}
 
+extension RIViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        rof = RateOfInfusion(
+            volume: Float(volumeTextField.text ?? "0.0") ?? 0.0,
+            time: Int(timeTextField.text ?? "0") ?? 0,
+            speed: Float(speedTextField.text ?? "0.0") ?? 0.0)
+    }
 }
