@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		CF828A82267DC4C900BC52C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF828A81267DC4C900BC52C3 /* AppDelegate.swift */; };
 		CF828A84267DC4C900BC52C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF828A83267DC4C900BC52C3 /* SceneDelegate.swift */; };
-		CF828A86267DC4C900BC52C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF828A85267DC4C900BC52C3 /* ViewController.swift */; };
+		CF828A86267DC4C900BC52C3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF828A85267DC4C900BC52C3 /* MainViewController.swift */; };
 		CF828A89267DC4C900BC52C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF828A87267DC4C900BC52C3 /* Main.storyboard */; };
 		CF828A8B267DC4CB00BC52C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF828A8A267DC4CB00BC52C3 /* Assets.xcassets */; };
 		CF828A8E267DC4CB00BC52C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF828A8C267DC4CB00BC52C3 /* LaunchScreen.storyboard */; };
+		CF828A97267DC83900BC52C3 /* RIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF828A96267DC83900BC52C3 /* RIModel.swift */; };
+		CF828A99267DC84E00BC52C3 /* RIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF828A98267DC84E00BC52C3 /* RIViewController.swift */; };
+		CF828A9B267DC85D00BC52C3 /* RISettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF828A9A267DC85D00BC52C3 /* RISettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CF828A7E267DC4C900BC52C3 /* CDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF828A81267DC4C900BC52C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF828A83267DC4C900BC52C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CF828A85267DC4C900BC52C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CF828A85267DC4C900BC52C3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CF828A88267DC4C900BC52C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF828A8A267DC4CB00BC52C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF828A8D267DC4CB00BC52C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF828A8F267DC4CB00BC52C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF828A96267DC83900BC52C3 /* RIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RIModel.swift; sourceTree = "<group>"; };
+		CF828A98267DC84E00BC52C3 /* RIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RIViewController.swift; sourceTree = "<group>"; };
+		CF828A9A267DC85D00BC52C3 /* RISettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RISettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,26 @@
 		CF828A80267DC4C900BC52C3 /* CDrop */ = {
 			isa = PBXGroup;
 			children = (
+				CF828A95267DC81500BC52C3 /* Rate of Infusion */,
 				CF828A81267DC4C900BC52C3 /* AppDelegate.swift */,
 				CF828A83267DC4C900BC52C3 /* SceneDelegate.swift */,
-				CF828A85267DC4C900BC52C3 /* ViewController.swift */,
+				CF828A85267DC4C900BC52C3 /* MainViewController.swift */,
 				CF828A87267DC4C900BC52C3 /* Main.storyboard */,
 				CF828A8A267DC4CB00BC52C3 /* Assets.xcassets */,
 				CF828A8C267DC4CB00BC52C3 /* LaunchScreen.storyboard */,
 				CF828A8F267DC4CB00BC52C3 /* Info.plist */,
 			);
 			path = CDrop;
+			sourceTree = "<group>";
+		};
+		CF828A95267DC81500BC52C3 /* Rate of Infusion */ = {
+			isa = PBXGroup;
+			children = (
+				CF828A96267DC83900BC52C3 /* RIModel.swift */,
+				CF828A98267DC84E00BC52C3 /* RIViewController.swift */,
+				CF828A9A267DC85D00BC52C3 /* RISettingViewController.swift */,
+			);
+			path = "Rate of Infusion";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +154,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF828A86267DC4C900BC52C3 /* ViewController.swift in Sources */,
+				CF828A99267DC84E00BC52C3 /* RIViewController.swift in Sources */,
+				CF828A97267DC83900BC52C3 /* RIModel.swift in Sources */,
+				CF828A86267DC4C900BC52C3 /* MainViewController.swift in Sources */,
 				CF828A82267DC4C900BC52C3 /* AppDelegate.swift in Sources */,
+				CF828A9B267DC85D00BC52C3 /* RISettingViewController.swift in Sources */,
 				CF828A84267DC4C900BC52C3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
