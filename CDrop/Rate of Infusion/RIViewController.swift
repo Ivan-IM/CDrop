@@ -101,7 +101,7 @@ extension RIViewController {
         super.viewDidAppear(true)
         
         let objectSize: Double = 20
-        let dropObjectFirst = DropObjectView(frame: CGRect(x: Double((view.frame.width)*0.10), y: Double((navigationController?.navigationBar.frame.height)! + 50), width: objectSize, height: objectSize))
+        let dropObjectFirst = DropObjectView(frame: CGRect(x: Double((Double((view.frame.width))*0.15)-objectSize), y: Double((navigationController?.navigationBar.frame.height)! + 50), width: objectSize, height: objectSize))
         let dropObjectSecond = DropObjectView(frame: CGRect(x: Double((view.frame.width)*0.85), y: Double((navigationController?.navigationBar.frame.height)! + 50), width: objectSize, height: objectSize))
         view.addSubview(dropObjectFirst)
         view.addSubview(dropObjectSecond)
