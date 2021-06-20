@@ -62,9 +62,10 @@ class RIViewController: UIViewController {
         else {
             clearTextField()
         }
+        print(rof.getSpeed)
     }
 }
-        ///Mark: delegate
+///Mark: delegate
 extension RIViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         rof = RateOfInfusion(
@@ -73,7 +74,7 @@ extension RIViewController: UITextFieldDelegate {
             speed: Float(speedTextField.text ?? "0.0") ?? 0.0)
     }
 }
-        ///Mark: some func
+///Mark: some func
 extension RIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -106,7 +107,7 @@ extension RIViewController {
         speedTextField.text = nil
     }
 }
-        ///Mark: animation
+///Mark: animation
 extension RIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -120,7 +121,6 @@ extension RIViewController {
         dropSecond.backgroundColor = UIColor.systemBlue.cgColor
         dropSecond.frame = CGRect(x: Double((view.frame.width)*0.85), y: Double(view.frame.height*0), width: objectSize, height: objectSize)
         view.layer.addSublayer(dropSecond)
-        
     }
     
     func animateDropFirst() {
@@ -130,7 +130,9 @@ extension RIViewController {
         animation.toValue = CGPoint(x: dropFirst.frame.origin.x + (dropFirst.frame.size.width/2),
                                     y: view.frame.height)
         animation.isRemovedOnCompletion = true
-        animation.speed = 2.0
+        animation.speed = 1.0
+        animation.repeatDuration = Double(rof.getSpeed)
+        animation.repeatCount = 0
         dropFirst.add(animation, forKey: nil)
     }
     func animateDropSecond() {
@@ -140,7 +142,9 @@ extension RIViewController {
         animation.toValue = CGPoint(x: dropSecond.frame.origin.x + (dropSecond.frame.size.width/2),
                                     y: view.frame.height)
         animation.isRemovedOnCompletion = true
-        animation.speed = 2.0
+        animation.speed = 1.0
+        animation.repeatDuration = 50
+        animation.repeatCount = 0
         dropSecond.add(animation, forKey: nil)
     }
 }
