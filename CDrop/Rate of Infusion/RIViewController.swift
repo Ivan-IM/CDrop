@@ -17,6 +17,8 @@ class RIViewController: UIViewController {
     @IBOutlet weak var speedTextField: UITextField!
     
     private var rof = RateOfInfusion(volume: 0.0, time: 0.0, speed: 0.0)
+    let dropFirst = CALayer()
+    let dropSecond = CALayer()
     
     @objc private func didTapDone() {
         view.endEditing(true)
@@ -39,6 +41,8 @@ class RIViewController: UIViewController {
     
     @IBAction func calculateButton(_ sender: Any) {
         view.endEditing(true)
+        animateDropFirst()
+        animateDropSecond()
         if rof.speed == 0.0 {
             speedTextField.text = String(format: "%.1f", rof.getSpeed)
         }
@@ -97,14 +101,44 @@ extension RIViewController {
 }
 
 extension RIViewController {
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
         let objectSize: Double = 20
-        let dropObjectFirst = DropObjectView(frame: CGRect(x: Double((Double((view.frame.width))*0.15)-objectSize), y: Double((navigationController?.navigationBar.frame.height)! + 50), width: objectSize, height: objectSize))
-        let dropObjectSecond = DropObjectView(frame: CGRect(x: Double((view.frame.width)*0.85), y: Double((navigationController?.navigationBar.frame.height)! + 50), width: objectSize, height: objectSize))
-        view.addSubview(dropObjectFirst)
-        view.addSubview(dropObjectSecond)
         
+        dropFirst.backgroundColor = UIColor.systemBlue.cgColor
+        dropFirst.frame = CGRect(x: Double((Double((view.frame.width))*0.15)-objectSize), y: Double(view.frame.height*0), width: objectSize, height: objectSize)
+        view.layer.addSublayer(dropFirst)
+        
+        dropSecond.backgroundColor = UIColor.systemBlue.cgColor
+        dropSecond.frame = CGRect(x: Double((view.frame.width)*0.85), y: Double(view.frame.height*0), width: objectSize, height: objectSize)
+        view.layer.addSublayer(dropSecond)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            self.animateDropFirst()
+        }
+    }
+    
+    func animateDropFirst() {
+        let animation = CABasicAnimation (keyPath: "position")
+        animation.fromValue = CGPoint(x: dropFirst.frame.origin.x + (dropFirst.frame.size.width/2),
+                                      y: dropFirst.frame.origin.y + (dropFirst.frame.size.height/2))
+        animation.toValue = CGPoint(x: dropFirst.frame.origin.x + (dropFirst.frame.size.width/2),
+                                    y: view.frame.height)
+        animation.isRemovedOnCompletion = true
+        animation.speed = 2.0
+        dropFirst.add(animation, forKey: nil)
+    }
+    func animateDropSecond() {
+        let animation = CABasicAnimation (keyPath: "position")
+        animation.fromValue = CGPoint(x: dropSecond.frame.origin.x + (dropSecond.frame.size.width/2),
+                                      y: dropSecond.frame.origin.y + (dropSecond.frame.size.height/2))
+        animation.toValue = CGPoint(x: dropSecond.frame.origin.x + (dropSecond.frame.size.width/2),
+                                    y: view.frame.height)
+        animation.isRemovedOnCompletion = true
+        animation.speed = 2.0
+        dropSecond.add(animation, forKey: nil)
     }
 }

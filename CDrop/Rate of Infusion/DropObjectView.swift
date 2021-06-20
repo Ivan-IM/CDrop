@@ -23,7 +23,7 @@ class DropObjectView: UIView {
         if let context = UIGraphicsGetCurrentContext() {
             
             // Set the circle outerline-width
-            context.setLineWidth(5.0);
+            context.setLineWidth(10.0);
             
             // Set the circle outerline-colour
             UIColor.blue.set()
