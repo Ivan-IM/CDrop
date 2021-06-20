@@ -46,7 +46,7 @@ class RIViewController: UIViewController {
             timeTextField.text = String(format: "%.0f", rof.getTime)
         }
         else if rof.volume == 0.0 {
-        volumeTextField.text = String(format: "%.1f", rof.getVolume)
+            volumeTextField.text = String(format: "%.1f", rof.getVolume)
         }
         else {
             clearTextField()
@@ -61,7 +61,9 @@ extension RIViewController: UITextFieldDelegate {
             time: Float(timeTextField.text ?? "0.0") ?? 0.0,
             speed: Float(speedTextField.text ?? "0.0") ?? 0.0)
     }
-    
+}
+
+extension RIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
@@ -86,12 +88,23 @@ extension RIViewController: UITextFieldDelegate {
         )
         keyboardToolbar.items = [flexBarButton, doneButton]
     }
-}
-
-extension RIViewController {
+    
     func clearTextField() {
         volumeTextField.text = nil
         timeTextField.text = nil
         speedTextField.text = nil
+    }
+}
+
+extension RIViewController {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        let objectSize: Double = 20
+        let dropObjectFirst = DropObjectView(frame: CGRect(x: Double((view.frame.width)*0.10), y: Double((navigationController?.navigationBar.frame.height)! + 50), width: objectSize, height: objectSize))
+        let dropObjectSecond = DropObjectView(frame: CGRect(x: Double((view.frame.width)*0.85), y: Double((navigationController?.navigationBar.frame.height)! + 50), width: objectSize, height: objectSize))
+        view.addSubview(dropObjectFirst)
+        view.addSubview(dropObjectSecond)
+        
     }
 }
