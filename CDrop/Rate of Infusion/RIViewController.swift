@@ -15,6 +15,7 @@ class RIViewController: UIViewController {
     @IBOutlet weak var volumeTextField: UITextField!
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var speedTextField: UITextField!
+    @IBOutlet weak var calculateButton: UIButton!
     
     private var rof = RateOfInfusion(volume: 0.0, time: 0.0, speed: 0.0)
     let dropFirst = CALayer()
@@ -26,7 +27,13 @@ class RIViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        volumeLable.text = "ml"
+        calculateButton.layer.cornerRadius = 20
+        volumeLable.layer.cornerRadius = 5
+        volumeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.1)
+        timeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.1)
+        speedLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.1)
+        
+        volumeLable.text = "mil"
         timeLable.text = "min"
         speedLable.text = "drops/sec"
         
@@ -57,7 +64,7 @@ class RIViewController: UIViewController {
         }
     }
 }
-
+        ///Mark: delegate
 extension RIViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         rof = RateOfInfusion(
@@ -66,7 +73,7 @@ extension RIViewController: UITextFieldDelegate {
             speed: Float(speedTextField.text ?? "0.0") ?? 0.0)
     }
 }
-
+        ///Mark: some func
 extension RIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -99,10 +106,8 @@ extension RIViewController {
         speedTextField.text = nil
     }
 }
-
+        ///Mark: animation
 extension RIViewController {
-    
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
@@ -116,9 +121,6 @@ extension RIViewController {
         dropSecond.frame = CGRect(x: Double((view.frame.width)*0.85), y: Double(view.frame.height*0), width: objectSize, height: objectSize)
         view.layer.addSublayer(dropSecond)
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-            self.animateDropFirst()
-        }
     }
     
     func animateDropFirst() {

@@ -9,9 +9,11 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var roiButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        roiButton.layer.cornerRadius = 20
     }
 
 

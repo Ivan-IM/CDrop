@@ -39,6 +39,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Menu" id="gAx-eX-id7"/>
+                    <connections>
+                        <outlet property="roiButton" destination="m2S-QN-YDc" id="KHi-FE-ypQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -166,6 +169,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="calculateButton" destination="ADh-9o-KR8" id="ht4-L3-mL5"/>
                         <outlet property="speedLable" destination="2qt-pP-kj1" id="PVI-Vq-DhN"/>
                         <outlet property="speedTextField" destination="xMk-lE-3S4" id="XmL-SW-77z"/>
                         <outlet property="timeLable" destination="bxv-TI-IDr" id="kBm-yi-QbK"/>
