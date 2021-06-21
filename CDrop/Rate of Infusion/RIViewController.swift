@@ -20,6 +20,8 @@ class RIViewController: UIViewController {
     private var rof = RateOfInfusion(volume: 0.0, time: 0.0, speed: 0.0)
     let dropFirst = CALayer()
     let dropSecond = CALayer()
+    var animator: UIDynamicAnimator!
+    var gravity: UIGravityBehavior!
     
     @objc private func didTapDone() {
         view.endEditing(true)
@@ -65,7 +67,7 @@ class RIViewController: UIViewController {
         print(rof.getSpeed)
     }
 }
-///Mark: delegate
+// MARK: delegate
 extension RIViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         rof = RateOfInfusion(
@@ -74,7 +76,7 @@ extension RIViewController: UITextFieldDelegate {
             speed: Float(speedTextField.text ?? "0.0") ?? 0.0)
     }
 }
-///Mark: some func
+// MARK: keyboard
 extension RIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -100,14 +102,16 @@ extension RIViewController {
         )
         keyboardToolbar.items = [flexBarButton, doneButton]
     }
-    
+}
+// MARK: some func
+extension RIViewController {
     func clearTextField() {
         volumeTextField.text = nil
         timeTextField.text = nil
         speedTextField.text = nil
     }
 }
-///Mark: animation
+// MARK: animation
 extension RIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -121,9 +125,13 @@ extension RIViewController {
         dropSecond.backgroundColor = UIColor.systemBlue.cgColor
         dropSecond.frame = CGRect(x: Double((view.frame.width)*0.85), y: Double(view.frame.height*0), width: objectSize, height: objectSize)
         view.layer.addSublayer(dropSecond)
+        
+        //animator = UIDynamicAnimator(referenceView: view)
+        //gravity = UIGravityBehavior(items: <#T##[UIDynamicItem]#>)
+        //animator.addBehavior(gravity)
     }
     
-    func animateDropFirst() {
+    @objc func animateDropFirst() {
         let animation = CABasicAnimation (keyPath: "position")
         animation.fromValue = CGPoint(x: dropFirst.frame.origin.x + (dropFirst.frame.size.width/2),
                                       y: dropFirst.frame.origin.y + (dropFirst.frame.size.height/2))
@@ -131,8 +139,8 @@ extension RIViewController {
                                     y: view.frame.height)
         animation.isRemovedOnCompletion = true
         animation.speed = 1.0
-        animation.repeatDuration = Double(rof.getSpeed)
-        animation.repeatCount = 0
+        animation.repeatDuration = 300000
+        animation.repeatCount = 1
         dropFirst.add(animation, forKey: nil)
     }
     func animateDropSecond() {
@@ -142,9 +150,10 @@ extension RIViewController {
         animation.toValue = CGPoint(x: dropSecond.frame.origin.x + (dropSecond.frame.size.width/2),
                                     y: view.frame.height)
         animation.isRemovedOnCompletion = true
-        animation.speed = 1.0
-        animation.repeatDuration = 50
+        animation.speed = 0.5
+        animation.repeatDuration = 300000
         animation.repeatCount = 0
         dropSecond.add(animation, forKey: nil)
     }
+    
 }
