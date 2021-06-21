@@ -29,11 +29,7 @@ class RIViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        calculateButton.layer.cornerRadius = 20
-        volumeLable.layer.cornerRadius = 5
-        volumeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.1)
-        timeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.1)
-        speedLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.1)
+        desingFunction()
         
         volumeLable.text = "mil"
         timeLable.text = "min"
@@ -156,4 +152,14 @@ extension RIViewController {
         dropSecond.add(animation, forKey: nil)
     }
     
+}
+// MARK: view desing
+extension RIViewController {
+    private func desingFunction() {
+        calculateButton.layer.cornerRadius = 20
+        volumeLable.layer.cornerRadius = 5
+        volumeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.1)
+        timeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.1)
+        speedLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.1)
+    }
 }
