@@ -53,6 +53,7 @@ class RIViewController: UIViewController {
         //dropImageSecond.dropAnimation()
         animator = UIDynamicAnimator(referenceView: view)
         gravity = UIGravityBehavior(items: [dropImageFirst, dropImageSecond])
+        gravity.magnitude = 9
         animator.addBehavior(gravity)
         
         if rof.speed == 0.0 {
