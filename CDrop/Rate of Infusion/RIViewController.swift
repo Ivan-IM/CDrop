@@ -16,10 +16,10 @@ class RIViewController: UIViewController {
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var speedTextField: UITextField!
     @IBOutlet weak var calculateButton: UIButton!
+    @IBOutlet weak var dropImageFirst: UIImageView!
+    @IBOutlet weak var dropImageSecond: UIImageView!
     
     private var rof = RateOfInfusion(volume: 0.0, time: 0.0, speed: 0.0)
-    let dropFirst = CALayer()
-    let dropSecond = CALayer()
     var animator: UIDynamicAnimator!
     var gravity: UIGravityBehavior!
     
@@ -30,6 +30,9 @@ class RIViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         desingFunction()
+        dropImageFirst.image = UIImage(named: "drop")
+        dropImageSecond.image = UIImage(named: "drop")
+
         
         volumeLable.text = "mil"
         timeLable.text = "min"
@@ -46,8 +49,9 @@ class RIViewController: UIViewController {
     
     @IBAction func calculateButton(_ sender: Any) {
         view.endEditing(true)
-        animateDropFirst()
-        animateDropSecond()
+        dropImageFirst.dropAnimation()
+        dropImageSecond.dropAnimation()
+        
         if rof.speed == 0.0 {
             speedTextField.text = String(format: "%.1f", rof.getSpeed)
         }
@@ -60,7 +64,6 @@ class RIViewController: UIViewController {
         else {
             clearTextField()
         }
-        print(rof.getSpeed)
     }
 }
 // MARK: delegate
@@ -111,46 +114,24 @@ extension RIViewController {
 extension RIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
-        let objectSize: Double = 20
-        
-        dropFirst.backgroundColor = UIColor.systemBlue.cgColor
-        dropFirst.frame = CGRect(x: Double((Double((view.frame.width))*0.15)-objectSize), y: Double(view.frame.height*0), width: objectSize, height: objectSize)
-        view.layer.addSublayer(dropFirst)
-        
-        dropSecond.backgroundColor = UIColor.systemBlue.cgColor
-        dropSecond.frame = CGRect(x: Double((view.frame.width)*0.85), y: Double(view.frame.height*0), width: objectSize, height: objectSize)
-        view.layer.addSublayer(dropSecond)
-        
+                
         //animator = UIDynamicAnimator(referenceView: view)
         //gravity = UIGravityBehavior(items: <#T##[UIDynamicItem]#>)
         //animator.addBehavior(gravity)
     }
     
-    @objc func animateDropFirst() {
-        let animation = CABasicAnimation (keyPath: "position")
-        animation.fromValue = CGPoint(x: dropFirst.frame.origin.x + (dropFirst.frame.size.width/2),
-                                      y: dropFirst.frame.origin.y + (dropFirst.frame.size.height/2))
-        animation.toValue = CGPoint(x: dropFirst.frame.origin.x + (dropFirst.frame.size.width/2),
-                                    y: view.frame.height)
-        animation.isRemovedOnCompletion = true
-        animation.speed = 1.0
-        animation.repeatDuration = 300000
-        animation.repeatCount = 1
-        dropFirst.add(animation, forKey: nil)
-    }
-    func animateDropSecond() {
-        let animation = CABasicAnimation (keyPath: "position")
-        animation.fromValue = CGPoint(x: dropSecond.frame.origin.x + (dropSecond.frame.size.width/2),
-                                      y: dropSecond.frame.origin.y + (dropSecond.frame.size.height/2))
-        animation.toValue = CGPoint(x: dropSecond.frame.origin.x + (dropSecond.frame.size.width/2),
-                                    y: view.frame.height)
-        animation.isRemovedOnCompletion = true
-        animation.speed = 0.5
-        animation.repeatDuration = 300000
-        animation.repeatCount = 0
-        dropSecond.add(animation, forKey: nil)
-    }
+//    func animateDropSecond() {
+//        let animation = CABasicAnimation (keyPath: "position")
+//        animation.fromValue = CGPoint(x: dropSecond.frame.origin.x + (dropSecond.frame.size.width/2),
+//                                      y: dropSecond.frame.origin.y + (dropSecond.frame.size.height/2))
+//        animation.toValue = CGPoint(x: dropSecond.frame.origin.x + (dropSecond.frame.size.width/2),
+//                                    y: view.frame.height)
+//        animation.isRemovedOnCompletion = true
+//        animation.speed = 0.5
+//        animation.repeatDuration = 300000
+//        animation.repeatCount = 0
+//        dropSecond.add(animation, forKey: nil)
+//    }
     
 }
 // MARK: view desing
