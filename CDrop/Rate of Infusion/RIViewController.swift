@@ -49,8 +49,11 @@ class RIViewController: UIViewController {
     
     @IBAction func calculateButton(_ sender: Any) {
         view.endEditing(true)
-        dropImageFirst.dropAnimation()
-        dropImageSecond.dropAnimation()
+        //dropImageFirst.dropAnimation()
+        //dropImageSecond.dropAnimation()
+        animator = UIDynamicAnimator(referenceView: view)
+        gravity = UIGravityBehavior(items: [dropImageFirst, dropImageSecond])
+        animator.addBehavior(gravity)
         
         if rof.speed == 0.0 {
             speedTextField.text = String(format: "%.1f", rof.getSpeed)
