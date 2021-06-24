@@ -14,6 +14,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         roiButton.layer.cornerRadius = 20
+        roiButton.layer.shadowRadius = 3.0
+        roiButton.layer.shadowOpacity = 0.5
+        roiButton.layer.shadowOffset = CGSize(width: 5, height: 5)
     }
 
 
