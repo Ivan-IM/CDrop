@@ -30,13 +30,6 @@ class RIViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         desingFunction()
-        dropImageFirst.image = UIImage(named: "drop")
-        dropImageSecond.image = UIImage(named: "drop")
-
-        
-        volumeLable.text = "mil"
-        timeLable.text = "min"
-        speedLable.text = "drops/sec"
         
         volumeTextField.text = nil
         timeTextField.text = nil
@@ -52,7 +45,6 @@ class RIViewController: UIViewController {
 //        let timer = Timer.scheduledTimer(withTimeInterval: Double(0.3), repeats: true) { Timer in
 //            self.drawAnimateDrop()
 //        }
-        
         
         if rof.speed == 0.0 {
             rof.speed = rof.getSpeed
@@ -115,38 +107,25 @@ extension RIViewController {
         speedTextField.text = nil
     }
 }
-// MARK: animation
-extension RIViewController {
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-                
-        //animator = UIDynamicAnimator(referenceView: view)
-        //gravity = UIGravityBehavior(items: <#T##[UIDynamicItem]#>)
-        //animator.addBehavior(gravity)
-    }
-    
-//    func animateDropSecond() {
-//        let animation = CABasicAnimation (keyPath: "position")
-//        animation.fromValue = CGPoint(x: dropSecond.frame.origin.x + (dropSecond.frame.size.width/2),
-//                                      y: dropSecond.frame.origin.y + (dropSecond.frame.size.height/2))
-//        animation.toValue = CGPoint(x: dropSecond.frame.origin.x + (dropSecond.frame.size.width/2),
-//                                    y: view.frame.height)
-//        animation.isRemovedOnCompletion = true
-//        animation.speed = 0.5
-//        animation.repeatDuration = 300000
-//        animation.repeatCount = 0
-//        dropSecond.add(animation, forKey: nil)
-//    }
-    
-}
+
 // MARK: view desing
 extension RIViewController {
     private func desingFunction() {
+        dropImageFirst.image = UIImage(named: "drop")
+        dropImageSecond.image = UIImage(named: "drop")
+        
         calculateButton.layer.cornerRadius = 20
+        
+        volumeLable.text = " ml"
+        timeLable.text = " min"
+        speedLable.text = " drops/sec"
+        
         volumeLable.layer.cornerRadius = 5
-        volumeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.1)
-        timeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.1)
-        speedLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.1)
+        volumeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.5)
+        timeLable.layer.cornerRadius = 5
+        timeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.75)
+        speedLable.layer.cornerRadius = 5
+        speedLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 1)
     }
 }
 
