@@ -49,12 +49,7 @@ class RIViewController: UIViewController {
     
     @IBAction func calculateButton(_ sender: Any) {
         view.endEditing(true)
-        //dropImageFirst.dropAnimation()
-        //dropImageSecond.dropAnimation()
-        animator = UIDynamicAnimator(referenceView: view)
-        gravity = UIGravityBehavior(items: [dropImageFirst, dropImageSecond])
-        gravity.magnitude = 9
-        animator.addBehavior(gravity)
+        drawAnimateDrop()
         
         if rof.speed == 0.0 {
             speedTextField.text = String(format: "%.1f", rof.getSpeed)
@@ -146,5 +141,20 @@ extension RIViewController {
         volumeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.1)
         timeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.1)
         speedLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.1)
+    }
+}
+
+extension RIViewController {
+    private func drawAnimateDrop() {
+        let dropFirst = UIImageView(frame: CGRect(x: CGFloat(dropImageFirst.frame.origin.x), y: CGFloat(dropImageFirst.frame.origin.y), width: CGFloat(dropImageFirst.frame.width), height: CGFloat(dropImageFirst.frame.height)))
+        let dropSecond = UIImageView(frame: CGRect(x: CGFloat(dropImageSecond.frame.origin.x), y: CGFloat(dropImageSecond.frame.origin.y), width: CGFloat(dropImageSecond.frame.width), height: CGFloat(dropImageSecond.frame.height)))
+        dropFirst.image = UIImage(named: "drop")
+        dropSecond.image = UIImage(named: "drop")
+        animator = UIDynamicAnimator(referenceView: view)
+        gravity = UIGravityBehavior(items: [dropFirst, dropSecond])
+        gravity.magnitude = 9
+        view.addSubview(dropFirst)
+        view.addSubview(dropSecond)
+        animator.addBehavior(gravity)
     }
 }
