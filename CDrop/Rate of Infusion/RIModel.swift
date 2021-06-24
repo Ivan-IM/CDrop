@@ -8,9 +8,9 @@
 import Foundation
 
 struct RateOfInfusion {
-    let volume: Float
-    let time: Float
-    let speed: Float
+    var volume: Float
+    var time: Float
+    var speed: Float
     
     var getSpeed: Float {
         (volume*20.0)/(time*60)

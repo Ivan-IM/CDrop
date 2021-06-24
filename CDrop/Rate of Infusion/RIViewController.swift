@@ -49,16 +49,22 @@ class RIViewController: UIViewController {
     
     @IBAction func calculateButton(_ sender: Any) {
         view.endEditing(true)
-        drawAnimateDrop()
+//        let timer = Timer.scheduledTimer(withTimeInterval: Double(0.3), repeats: true) { Timer in
+//            self.drawAnimateDrop()
+//        }
+        
         
         if rof.speed == 0.0 {
-            speedTextField.text = String(format: "%.1f", rof.getSpeed)
+            rof.speed = rof.getSpeed
+            speedTextField.text = String(format: "%.1f", rof.speed)
         }
         else if rof.time == 0.0 {
-            timeTextField.text = String(format: "%.0f", rof.getTime)
+            rof.time = rof.getTime
+            timeTextField.text = String(format: "%.0f", rof.time)
         }
         else if rof.volume == 0.0 {
-            volumeTextField.text = String(format: "%.1f", rof.getVolume)
+            rof.volume = rof.getVolume
+            volumeTextField.text = String(format: "%.1f", rof.volume)
         }
         else {
             clearTextField()
@@ -101,7 +107,7 @@ extension RIViewController {
         keyboardToolbar.items = [flexBarButton, doneButton]
     }
 }
-// MARK: some func
+// MARK: cell clear func
 extension RIViewController {
     func clearTextField() {
         volumeTextField.text = nil
