@@ -112,20 +112,52 @@ extension RIViewController {
 extension RIViewController {
     private func desingFunction() {
         dropImageFirst.image = UIImage(named: "drop")
+        dropImageFirst.layer.shadowRadius = 1.0
+        dropImageFirst.layer.shadowOpacity = 0.5
+        dropImageFirst.layer.shadowOffset = CGSize(width: 3, height: 3)
+        
         dropImageSecond.image = UIImage(named: "drop")
+        dropImageSecond.layer.shadowRadius = 1.0
+        dropImageSecond.layer.shadowOpacity = 0.5
+        dropImageSecond.layer.shadowOffset = CGSize(width: 3, height: 3)
         
         calculateButton.layer.cornerRadius = 20
+        calculateButton.layer.shadowRadius = 3.0
+        calculateButton.layer.shadowOpacity = 0.5
+        calculateButton.layer.shadowOffset = CGSize(width: 5, height: 5)
+        
+        volumeTextField.layer.shadowRadius = 3.0
+        volumeTextField.layer.shadowOpacity = 0.5
+        volumeTextField.layer.shadowOffset = CGSize(width: 3, height: 3)
+        
+        timeTextField.layer.shadowRadius = 3.0
+        timeTextField.layer.shadowOpacity = 0.5
+        timeTextField.layer.shadowOffset = CGSize(width: 3, height: 3)
+        
+        speedTextField.layer.shadowRadius = 3.0
+        speedTextField.layer.shadowOpacity = 0.5
+        speedTextField.layer.shadowOffset = CGSize(width: 3, height: 3)
         
         volumeLable.text = " ml"
-        timeLable.text = " min"
-        speedLable.text = " drops/sec"
-        
         volumeLable.layer.cornerRadius = 5
-        volumeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.5)
+        volumeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 1)
+        volumeLable.layer.shadowRadius = 3.0
+        volumeLable.layer.shadowOpacity = 0.5
+        volumeLable.layer.shadowOffset = CGSize(width: 3, height: 3)
+        
+        timeLable.text = " min"
         timeLable.layer.cornerRadius = 5
-        timeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 0.75)
+        timeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 1)
+        timeLable.layer.shadowRadius = 3.0
+        timeLable.layer.shadowOpacity = 0.5
+        timeLable.layer.shadowOffset = CGSize(width: 3, height: 3)
+        
+        speedLable.text = " drops/sec"
         speedLable.layer.cornerRadius = 5
         speedLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 1)
+        speedLable.layer.shadowRadius = 3.0
+        speedLable.layer.shadowOpacity = 0.5
+        speedLable.layer.shadowOffset = CGSize(width: 3, height: 3)
     }
 }
 
