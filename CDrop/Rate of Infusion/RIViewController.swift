@@ -99,6 +99,9 @@ extension RIViewController {
 // MARK: cell clear func
 extension RIViewController {
     private func clearTextField() {
+        rof.volume = 0
+        rof.time = 0
+        rof.speed = 0
         volumeTextField.text = nil
         timeTextField.text = nil
         speedTextField.text = nil
@@ -181,9 +184,11 @@ extension RIViewController {
         timer?.invalidate()
         let interval = 1/Double(rof.speed)
         if interval > 0 {
-        timer = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(drawAnimateDrop), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(drawAnimateDrop), userInfo: nil, repeats: true)
         }
-        else { return }
+        else {
+            timer?.invalidate()
+        }
     }
     private func stopTimer() {
         timer?.invalidate()
