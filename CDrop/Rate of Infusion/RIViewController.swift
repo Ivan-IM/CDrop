@@ -22,6 +22,7 @@ class RIViewController: UIViewController {
     private var rof = RateOfInfusion(volume: 0.0, time: 0.0, speed: 0.0)
     var animator: UIDynamicAnimator!
     var gravity: UIGravityBehavior!
+    var timer: Timer?
     
     @objc private func didTapDone() {
         view.endEditing(true)
@@ -30,7 +31,7 @@ class RIViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         desingFunction()
-                
+        
         volumeTextField.delegate = self
         timeTextField.delegate = self
         speedTextField.delegate = self
@@ -53,7 +54,7 @@ class RIViewController: UIViewController {
         else {
             clearTextField()
         }
-        drawAnimateDrop()
+        startTimer()
     }
 }
 
@@ -107,10 +108,7 @@ extension RIViewController {
 // MARK: view desing
 extension RIViewController {
     private func desingFunction() {
-        dropImageFirst.image = UIImage(named: "drop")
-        dropImageFirst.layer.shadowRadius = 1.0
-        dropImageFirst.layer.shadowOpacity = 0.5
-        dropImageFirst.layer.shadowOffset = CGSize(width: 3, height: 3)
+        dropDesing(someView: [dropImageFirst, dropImageSecond])
         
         dropImageSecond.image = UIImage(named: "drop")
         dropImageSecond.layer.shadowRadius = 1.0
@@ -127,7 +125,7 @@ extension RIViewController {
         timeTextField.text = nil
         speedTextField.text = nil
         textFieldDesing(someView: [volumeTextField, timeTextField, speedTextField])
-
+        
         volumeLable.text = " ml"
         timeLable.text = " min"
         speedLable.text = " drops/sec"
@@ -136,34 +134,58 @@ extension RIViewController {
     
     private func lableDesing(someView: [UIView]) {
         for i in someView {
-        i.layer.cornerRadius = 5
-        i.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 1)
-        i.layer.shadowRadius = 3.0
-        i.layer.shadowOpacity = 0.5
-        i.layer.shadowOffset = CGSize(width: 3, height: 3)
+            i.layer.cornerRadius = 5
+            i.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 1)
+            i.layer.shadowRadius = 3.0
+            i.layer.shadowOpacity = 0.5
+            i.layer.shadowOffset = CGSize(width: 3, height: 3)
         }
     }
     
     private func textFieldDesing(someView: [UIView]) {
         for i in someView {
-        i.layer.shadowRadius = 3.0
-        i.layer.shadowOpacity = 0.5
-        i.layer.shadowOffset = CGSize(width: 3, height: 3)
+            i.layer.shadowRadius = 3.0
+            i.layer.shadowOpacity = 0.5
+            i.layer.shadowOffset = CGSize(width: 3, height: 3)
+        }
+    }
+    
+    private func dropDesing(someView: [UIImageView]) {
+        for i in someView {
+            i.image = UIImage(named: "drop")
+            i.layer.shadowRadius = 1.0
+            i.layer.shadowOpacity = 0.5
+            i.layer.shadowOffset = CGSize(width: 3, height: 3)
         }
     }
 }
 
+// MARK: draw drops
 extension RIViewController {
-    private func drawAnimateDrop() {
+    @objc func drawAnimateDrop() {
         let dropFirst = UIImageView(frame: CGRect(x: CGFloat(dropImageFirst.frame.origin.x), y: CGFloat(dropImageFirst.frame.origin.y), width: CGFloat(dropImageFirst.frame.width), height: CGFloat(dropImageFirst.frame.height)))
         let dropSecond = UIImageView(frame: CGRect(x: CGFloat(dropImageSecond.frame.origin.x), y: CGFloat(dropImageSecond.frame.origin.y), width: CGFloat(dropImageSecond.frame.width), height: CGFloat(dropImageSecond.frame.height)))
-        dropFirst.image = UIImage(named: "drop")
-        dropSecond.image = UIImage(named: "drop")
+        dropDesing(someView: [dropFirst, dropSecond])
         animator = UIDynamicAnimator(referenceView: view)
         gravity = UIGravityBehavior(items: [dropFirst, dropSecond])
         gravity.magnitude = 9
         view.addSubview(dropFirst)
         view.addSubview(dropSecond)
         animator.addBehavior(gravity)
+    }
+}
+
+// MARK: timer func
+extension RIViewController {
+    private func startTimer() {
+        timer?.invalidate()
+        let interval = 1/Double(rof.speed)
+        if interval > 0 {
+        timer = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(drawAnimateDrop), userInfo: nil, repeats: true)
+        }
+        else { return }
+    }
+    private func stopTimer() {
+        timer?.invalidate()
     }
 }
