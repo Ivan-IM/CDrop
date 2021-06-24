@@ -30,11 +30,7 @@ class RIViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         desingFunction()
-        
-        volumeTextField.text = nil
-        timeTextField.text = nil
-        speedTextField.text = nil
-        
+                
         volumeTextField.delegate = self
         timeTextField.delegate = self
         speedTextField.delegate = self
@@ -42,10 +38,6 @@ class RIViewController: UIViewController {
     
     @IBAction func calculateButton(_ sender: Any) {
         view.endEditing(true)
-//        let timer = Timer.scheduledTimer(withTimeInterval: Double(0.3), repeats: true) { Timer in
-//            self.drawAnimateDrop()
-//        }
-        
         if rof.speed == 0.0 {
             rof.speed = rof.getSpeed
             speedTextField.text = String(format: "%.1f", rof.speed)
@@ -61,8 +53,10 @@ class RIViewController: UIViewController {
         else {
             clearTextField()
         }
+        drawAnimateDrop()
     }
 }
+
 // MARK: delegate
 extension RIViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -72,6 +66,7 @@ extension RIViewController: UITextFieldDelegate {
             speed: Float(speedTextField.text ?? "0.0") ?? 0.0)
     }
 }
+
 // MARK: keyboard
 extension RIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -99,9 +94,10 @@ extension RIViewController {
         keyboardToolbar.items = [flexBarButton, doneButton]
     }
 }
+
 // MARK: cell clear func
 extension RIViewController {
-    func clearTextField() {
+    private func clearTextField() {
         volumeTextField.text = nil
         timeTextField.text = nil
         speedTextField.text = nil
@@ -122,42 +118,38 @@ extension RIViewController {
         dropImageSecond.layer.shadowOffset = CGSize(width: 3, height: 3)
         
         calculateButton.layer.cornerRadius = 20
+        calculateButton.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 1)
         calculateButton.layer.shadowRadius = 3.0
         calculateButton.layer.shadowOpacity = 0.5
         calculateButton.layer.shadowOffset = CGSize(width: 5, height: 5)
         
-        volumeTextField.layer.shadowRadius = 3.0
-        volumeTextField.layer.shadowOpacity = 0.5
-        volumeTextField.layer.shadowOffset = CGSize(width: 3, height: 3)
-        
-        timeTextField.layer.shadowRadius = 3.0
-        timeTextField.layer.shadowOpacity = 0.5
-        timeTextField.layer.shadowOffset = CGSize(width: 3, height: 3)
-        
-        speedTextField.layer.shadowRadius = 3.0
-        speedTextField.layer.shadowOpacity = 0.5
-        speedTextField.layer.shadowOffset = CGSize(width: 3, height: 3)
-        
+        volumeTextField.text = nil
+        timeTextField.text = nil
+        speedTextField.text = nil
+        textFieldDesing(someView: [volumeTextField, timeTextField, speedTextField])
+
         volumeLable.text = " ml"
-        volumeLable.layer.cornerRadius = 5
-        volumeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 1)
-        volumeLable.layer.shadowRadius = 3.0
-        volumeLable.layer.shadowOpacity = 0.5
-        volumeLable.layer.shadowOffset = CGSize(width: 3, height: 3)
-        
         timeLable.text = " min"
-        timeLable.layer.cornerRadius = 5
-        timeLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 1)
-        timeLable.layer.shadowRadius = 3.0
-        timeLable.layer.shadowOpacity = 0.5
-        timeLable.layer.shadowOffset = CGSize(width: 3, height: 3)
-        
         speedLable.text = " drops/sec"
-        speedLable.layer.cornerRadius = 5
-        speedLable.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 1)
-        speedLable.layer.shadowRadius = 3.0
-        speedLable.layer.shadowOpacity = 0.5
-        speedLable.layer.shadowOffset = CGSize(width: 3, height: 3)
+        lableDesing(someView: [volumeLable, timeLable, speedLable])
+    }
+    
+    private func lableDesing(someView: [UIView]) {
+        for i in someView {
+        i.layer.cornerRadius = 5
+        i.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 1, alpha: 1)
+        i.layer.shadowRadius = 3.0
+        i.layer.shadowOpacity = 0.5
+        i.layer.shadowOffset = CGSize(width: 3, height: 3)
+        }
+    }
+    
+    private func textFieldDesing(someView: [UIView]) {
+        for i in someView {
+        i.layer.shadowRadius = 3.0
+        i.layer.shadowOpacity = 0.5
+        i.layer.shadowOffset = CGSize(width: 3, height: 3)
+        }
     }
 }
 
