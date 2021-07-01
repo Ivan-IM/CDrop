@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CF09172126838F580034D969 /* Extention+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09172026838F580034D969 /* Extention+UIImage.swift */; };
+		CF2BF971268E1AA700842794 /* BezierOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2BF970268E1AA700842794 /* BezierOne.swift */; };
 		CF828A82267DC4C900BC52C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF828A81267DC4C900BC52C3 /* AppDelegate.swift */; };
 		CF828A84267DC4C900BC52C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF828A83267DC4C900BC52C3 /* SceneDelegate.swift */; };
 		CF828A86267DC4C900BC52C3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF828A85267DC4C900BC52C3 /* MainViewController.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		CF09172026838F580034D969 /* Extention+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UIImage.swift"; sourceTree = "<group>"; };
+		CF2BF970268E1AA700842794 /* BezierOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierOne.swift; sourceTree = "<group>"; };
 		CF828A7E267DC4C900BC52C3 /* CDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF828A81267DC4C900BC52C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF828A83267DC4C900BC52C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				CF828A98267DC84E00BC52C3 /* RIViewController.swift */,
 				CF828A9A267DC85D00BC52C3 /* RISettingViewController.swift */,
 				CF09172026838F580034D969 /* Extention+UIImage.swift */,
+				CF2BF970268E1AA700842794 /* BezierOne.swift */,
 			);
 			path = "Rate of Infusion";
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				CF828A86267DC4C900BC52C3 /* MainViewController.swift in Sources */,
 				CF828A82267DC4C900BC52C3 /* AppDelegate.swift in Sources */,
 				CF828A9B267DC85D00BC52C3 /* RISettingViewController.swift in Sources */,
+				CF2BF971268E1AA700842794 /* BezierOne.swift in Sources */,
 				CF828A84267DC4C900BC52C3 /* SceneDelegate.swift in Sources */,
 				CF09172126838F580034D969 /* Extention+UIImage.swift in Sources */,
 			);
@@ -313,6 +317,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5S24UZWM65;
 				INFOPLIST_FILE = CDrop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,6 +337,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5S24UZWM65;
 				INFOPLIST_FILE = CDrop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

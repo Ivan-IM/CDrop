@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Rt-KA-rvp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,7 +21,7 @@
                                 <rect key="frame" x="107" y="450" width="200" height="50"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="vUY-Ne-U8W"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="vUY-Ne-U8W"/>
                                     <constraint firstAttribute="height" constant="50" id="waP-Lm-Lah"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -52,7 +53,7 @@
         <scene sceneID="fcs-F1-BQs">
             <objects>
                 <viewController id="nms-ot-Uzx" customClass="RIViewController" customModule="CDrop" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="by3-WV-YbQ">
+                    <view key="view" contentMode="scaleToFill" id="by3-WV-YbQ" customClass="BezierOne" customModule="CDrop" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -62,7 +63,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="speed" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xMk-lE-3S4">
                                         <rect key="frame" x="0.0" y="0.0" width="96" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="96" id="0eA-PG-GZo"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="0eA-PG-GZo"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -70,7 +71,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="speed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qt-pP-kj1">
                                         <rect key="frame" x="104" y="0.0" width="96" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="96" id="Qlr-k1-41P"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="Qlr-k1-41P"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemBackgroundColor"/>
@@ -87,7 +88,7 @@
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="K7X-Io-jMc"/>
-                                    <constraint firstAttribute="width" constant="200" id="MMN-wV-Tsz"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="MMN-wV-Tsz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Calculate">
@@ -97,27 +98,13 @@
                                     <action selector="calculateButton:" destination="nms-ot-Uzx" eventType="touchUpInside" id="wPm-EW-zxV"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QtQ-Ao-bs8">
-                                <rect key="frame" x="20" y="83" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="iuH-kF-XTK"/>
-                                    <constraint firstAttribute="height" constant="50" id="nxf-s4-W57"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hW6-Zd-R6I">
-                                <rect key="frame" x="344" y="83" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="9Si-Ce-dPA"/>
-                                    <constraint firstAttribute="width" constant="50" id="KXw-D1-UBq"/>
-                                </constraints>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0W7-aD-M06">
                                 <rect key="frame" x="107" y="409" width="200" height="34"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="time" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4Ay-pA-tu4">
                                         <rect key="frame" x="0.0" y="0.0" width="96" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="96" id="sIV-c0-iSv"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="sIV-c0-iSv"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -125,7 +112,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxv-TI-IDr">
                                         <rect key="frame" x="104" y="0.0" width="96" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="96" id="eDS-19-7Kc"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="eDS-19-7Kc"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemBackgroundColor"/>
@@ -143,7 +130,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="volume" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4FE-PR-5bA">
                                         <rect key="frame" x="0.0" y="0.0" width="96" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="96" id="dJ3-o4-goI"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="dJ3-o4-goI"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -151,7 +138,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="volume" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7T-h4-V5e">
                                         <rect key="frame" x="104" y="0.0" width="96" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="96" id="XFZ-MI-Ld6"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="XFZ-MI-Ld6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemBackgroundColor"/>
@@ -167,14 +154,10 @@
                         <viewLayoutGuide key="safeArea" id="iH7-UH-yNC"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
-                            <constraint firstItem="hW6-Zd-R6I" firstAttribute="top" secondItem="iH7-UH-yNC" secondAttribute="top" constant="-5" id="2nv-LN-cQL"/>
-                            <constraint firstAttribute="trailing" secondItem="hW6-Zd-R6I" secondAttribute="trailing" constant="20" id="5eB-1r-p5N"/>
                             <constraint firstItem="0W7-aD-M06" firstAttribute="centerX" secondItem="iH7-UH-yNC" secondAttribute="centerX" id="Eiu-dv-5cz"/>
                             <constraint firstItem="0W7-aD-M06" firstAttribute="top" secondItem="vMR-ms-233" secondAttribute="bottom" constant="15" id="Nms-5P-94f"/>
-                            <constraint firstItem="QtQ-Ao-bs8" firstAttribute="top" secondItem="iH7-UH-yNC" secondAttribute="top" constant="-5" id="ONJ-A4-plS"/>
                             <constraint firstItem="4pc-IP-glt" firstAttribute="centerX" secondItem="iH7-UH-yNC" secondAttribute="centerX" id="VzI-Dm-9at"/>
                             <constraint firstItem="4pc-IP-glt" firstAttribute="centerY" secondItem="iH7-UH-yNC" secondAttribute="centerY" id="XFd-Tt-56l"/>
-                            <constraint firstItem="QtQ-Ao-bs8" firstAttribute="leading" secondItem="iH7-UH-yNC" secondAttribute="leading" constant="20" id="fhR-ll-UQf"/>
                             <constraint firstItem="ADh-9o-KR8" firstAttribute="centerX" secondItem="iH7-UH-yNC" secondAttribute="centerX" id="gsb-7y-YkG"/>
                             <constraint firstItem="iH7-UH-yNC" firstAttribute="bottom" secondItem="ADh-9o-KR8" secondAttribute="bottom" constant="50" id="hd0-cC-eaD"/>
                             <constraint firstItem="vMR-ms-233" firstAttribute="centerX" secondItem="iH7-UH-yNC" secondAttribute="centerX" id="iF6-Pg-7ak"/>
@@ -190,8 +173,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="calculateButton" destination="ADh-9o-KR8" id="ht4-L3-mL5"/>
-                        <outlet property="dropImageFirst" destination="QtQ-Ao-bs8" id="rfj-E1-NlP"/>
-                        <outlet property="dropImageSecond" destination="hW6-Zd-R6I" id="EyS-RK-uKj"/>
                         <outlet property="speedLable" destination="2qt-pP-kj1" id="PVI-Vq-DhN"/>
                         <outlet property="speedTextField" destination="xMk-lE-3S4" id="XmL-SW-77z"/>
                         <outlet property="timeLable" destination="bxv-TI-IDr" id="kBm-yi-QbK"/>
