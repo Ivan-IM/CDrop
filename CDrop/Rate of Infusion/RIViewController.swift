@@ -51,9 +51,9 @@ class RIViewController: UIViewController {
         }
         else {
             clearTextField()
+            stopTimer()
         }
-        BezierDrop.drawDrop(view: view, bar: navigationController!, interval: rof.speed)
-//        startTimer()
+        startTimer()
     }
 }
 
@@ -98,9 +98,9 @@ extension RIViewController {
 // MARK: cell clear func
 extension RIViewController {
     private func clearTextField() {
-        rof.volume = 0
-        rof.time = 0
-        rof.speed = 0
+        rof.volume = 0.0
+        rof.time = 0.0
+        rof.speed = 0.0
         volumeTextField.text = nil
         timeTextField.text = nil
         speedTextField.text = nil
@@ -148,18 +148,21 @@ extension RIViewController {
 
 // MARK: timer func
 extension RIViewController {
-//    private func startTimer() {
-//        timer?.invalidate()
-//        let interval = 1/Double(rof.speed)
-//        if interval > 0 {
-//            timer = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(drawAnimateDrop), userInfo: nil, repeats: true)
-//        }
-//        else {
-//            timer?.invalidate()
-//        }
-//    }
-//    private func stopTimer() {
-//        timer?.invalidate()
-//    }
+    private func startTimer() {
+        timer?.invalidate()
+        let interval = 1/Double(rof.speed)
+        print(interval)
+        if interval > 0 {
+            timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { (timer) in
+                BezierDrop.drawDrop(view: self.view)
+            }
+        }
+        else {
+            timer?.invalidate()
+        }
+    }
+    private func stopTimer() {
+        timer?.invalidate()
+    }
 }
 
