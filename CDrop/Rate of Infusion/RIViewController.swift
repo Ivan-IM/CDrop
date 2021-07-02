@@ -21,7 +21,6 @@ class RIViewController: UIViewController {
     
     private var rof = RateOfInfusion(volume: 0.0, time: 0.0, speed: 0.0)
     var timer: Timer?
-    let drop = CAShapeLayer()
     
     @objc private func didTapDone() {
         view.endEditing(true)
@@ -53,6 +52,7 @@ class RIViewController: UIViewController {
         else {
             clearTextField()
         }
+        BezierDrop.drawDrop(view: view, bar: navigationController!, interval: rof.speed)
 //        startTimer()
     }
 }
@@ -163,17 +163,3 @@ extension RIViewController {
 //    }
 }
 
-extension RIViewController {
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let center = CGPoint(x: view.frame.origin.x+30, y: view.frame.origin.y+65)
-        let dropPath = UIBezierPath()
-        dropPath.move(to: center)
-        dropPath.addCurve(to: center,
-                      controlPoint1: CGPoint(x: center.x+30, y: center.y+50),
-                      controlPoint2: CGPoint(x: center.x-30, y: center.y+50))
-        
-        drop.path = dropPath.cgPath
-        view.layer.addSublayer(drop)
-    }
-}
